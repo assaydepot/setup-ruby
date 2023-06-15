@@ -167,6 +167,11 @@ const GitHubHostedPlatforms = [
   'ubuntu-22.04-arm64'
 ]
 
+// Actually a self-hosted runner for which  the OS and OS version does not correspond to a GitHub-hosted runner image,
+export function isSelfHostedRunner() {
+  return true;
+}
+
 let virtualEnvironmentName = undefined
 
 export function getVirtualEnvironmentName() {

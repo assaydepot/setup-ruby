@@ -303,6 +303,7 @@ __nccwpck_require__.d(__webpack_exports__, {
   "isBundler2Default": () => (/* binding */ isBundler2Default),
   "isBundler2dot2Default": () => (/* binding */ isBundler2dot2Default),
   "isHeadVersion": () => (/* binding */ isHeadVersion),
+  "isSelfHostedRunner": () => (/* binding */ isSelfHostedRunner),
   "isStableVersion": () => (/* binding */ isStableVersion),
   "measure": () => (/* binding */ measure),
   "partition": () => (/* binding */ partition),
@@ -522,6 +523,11 @@ const GitHubHostedPlatforms = (/* unused pure expression or super */ null && ([
   'ubuntu-22.04-x64',
   'ubuntu-22.04-arm64'
 ]))
+
+// Actually a self-hosted runner for which  the OS and OS version does not correspond to a GitHub-hosted runner image,
+function isSelfHostedRunner() {
+  return true;
+}
 
 let virtualEnvironmentName = undefined
 
