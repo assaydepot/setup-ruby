@@ -64997,7 +64997,7 @@ const tc = __nccwpck_require__(7784)
 const common = __nccwpck_require__(3143)
 const rubyBuilderVersions = __nccwpck_require__(5959)
 
-const releasesURL = 'https://arc-ruby.s3.eu-central-1.amazonaws.com/'
+const releasesURL = 'https://arc-ruby.s3.eu-central-1.amazonaws.com'
 
 const windows = common.windows
 
@@ -65088,7 +65088,7 @@ function getDownloadURL(platform, engine, version) {
   if (common.isHeadVersion(version)) {
     return getLatestHeadBuildURL(builderPlatform, engine, version)
   } else {
-    return `${releasesURL}/download/${engine}-${version}-${arch}.tar.gz`
+    return `${releasesURL}/${engine}-${version}-${arch}.tar.gz`
   }
 }
 

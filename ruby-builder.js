@@ -8,7 +8,7 @@ const tc = require('@actions/tool-cache')
 const common = require('./common')
 const rubyBuilderVersions = require('./ruby-builder-versions')
 
-const releasesURL = 'https://arc-ruby.s3.eu-central-1.amazonaws.com/'
+const releasesURL = 'https://arc-ruby.s3.eu-central-1.amazonaws.com'
 
 const windows = common.windows
 
@@ -99,7 +99,7 @@ function getDownloadURL(platform, engine, version) {
   if (common.isHeadVersion(version)) {
     return getLatestHeadBuildURL(builderPlatform, engine, version)
   } else {
-    return `${releasesURL}/download/${engine}-${version}-${arch}.tar.gz`
+    return `${releasesURL}/${engine}-${version}-${arch}.tar.gz`
   }
 }
 
