@@ -40,7 +40,6 @@ export async function setupRuby(options = {}) {
       inputs[key] = core.getInput(key) || inputDefaults[key]
     }
   }
-  common.inputs.selfHosted = inputs['self-hosted']
 
   process.chdir(inputs['working-directory'])
 

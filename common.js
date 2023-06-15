@@ -163,34 +163,9 @@ export async function hashFile(file) {
 }
 
 const GitHubHostedPlatforms = [
-  'ubuntu-20.04-x64',
   'ubuntu-22.04-x64',
-  'macos-11-x64',
-  'macos-12-x64',
-  'macos-13-x64',
-  'windows-2019-x64',
-  'windows-2022-x64',
+  'ubuntu-22.04-arm64'
 ]
-
-// Actually a self-hosted runner for which  the OS and OS version does not correspond to a GitHub-hosted runner image,
-export function isSelfHostedRunner() {
-  if (inputs.selfHosted === undefined) {
-    throw new Error('inputs.selfHosted should have been already set')
-  }
-
-  return inputs.selfHosted === 'true' ||
-    !GitHubHostedPlatforms.includes(getOSNameVersionArch())
-}
-
-export function selfHostedRunnerReason() {
-  if (inputs.selfHosted === 'true') {
-    return 'the self-hosted input was set'
-  } else if (!GitHubHostedPlatforms.includes(getOSNameVersionArch())) {
-    return 'the platform does not match a GitHub-hosted runner image (or that image is deprecated and no longer supported)'
-  } else {
-    return 'unknown reason'
-  }
-}
 
 let virtualEnvironmentName = undefined
 
