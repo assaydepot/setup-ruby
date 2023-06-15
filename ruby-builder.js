@@ -16,7 +16,6 @@ const windows = common.windows
 export function getAvailableVersions(platform, engine) {
   return rubyBuilderVersions[engine]
 }
-inter
 export async function install(platform, engine, version) {
   let rubyPrefix, inToolCache
   if (common.shouldUseToolCache(engine, version)) {
