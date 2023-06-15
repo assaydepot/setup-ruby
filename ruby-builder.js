@@ -8,8 +8,7 @@ const tc = require('@actions/tool-cache')
 const common = require('./common')
 const rubyBuilderVersions = require('./ruby-builder-versions')
 
-const builderReleaseTag = 'toolcache'
-const releasesURL = 'https://s3-eu-central-1.amazonaws.com/arc-ruby'
+const releasesURL = 'https://arc-ruby.s3.eu-central-1.amazonaws.com/'
 
 const windows = common.windows
 
@@ -92,10 +91,15 @@ function getDownloadURL(platform, engine, version) {
     builderPlatform = 'macos-latest'
   }
 
+  let arch = "amd64";
+  if (platform.arch() === "arm64") {
+    arch = "arm64";
+  }
+
   if (common.isHeadVersion(version)) {
     return getLatestHeadBuildURL(builderPlatform, engine, version)
   } else {
-    return `${releasesURL}/download/${builderReleaseTag}/${engine}-${version}-${builderPlatform}.tar.gz`
+    return `${releasesURL}/download/${engine}-${version}-${arch}.tar.gz`
   }
 }
 
