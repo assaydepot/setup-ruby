@@ -65081,7 +65081,7 @@ function getDownloadURL(platform, engine, version) {
   }
 
   let arch = "amd64";
-  if (platform.arch() === "arm64") {
+  if (platform.arch === "arm64") {
     arch = "arm64";
   }
 
