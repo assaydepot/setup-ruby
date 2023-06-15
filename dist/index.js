@@ -64999,7 +64999,6 @@ const windows = common.windows
 function getAvailableVersions(platform, engine) {
   return rubyBuilderVersions[engine]
 }
-inter
 async function install(platform, engine, version) {
   let rubyPrefix, inToolCache
   if (common.shouldUseToolCache(engine, version)) {
